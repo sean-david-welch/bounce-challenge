@@ -1,7 +1,7 @@
 import express from 'express';
 
-import { createUser, getUserByEmail } from 'database/users';
-import { random, authentication } from 'helpers';
+import { createUser, getUserByEmail } from '../database/users';
+import { random, authentication } from '../helpers/index';
 
 export const register = async (request: express.Request, response: express.Response) => {
   try {

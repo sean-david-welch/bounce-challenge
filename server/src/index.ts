@@ -1,11 +1,12 @@
-import express from 'express';
 import http from 'http';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import compression from 'compression';
 import cors from 'cors';
+import express from 'express';
 import mongoose from 'mongoose';
-import router from 'router';
+import bodyParser from 'body-parser';
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
+
+import router from './router';
 
 const app = express();
 
@@ -28,4 +29,4 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
-app.use('/', router);
+app.use('/api', router());
