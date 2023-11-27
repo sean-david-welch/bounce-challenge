@@ -12,6 +12,8 @@ export const getCountryInfo = async (request: express.Request, response: express
     const apiUrl = `https://restcountries.com/v3.1/name/${encodeURIComponent(country)}`;
     const countryResponse = await axios.get(apiUrl);
 
+    console.log(countryResponse.data);
+
     return response.status(200).json(countryResponse.data);
   } catch (error) {
     console.error('Error fetching country data:', error);

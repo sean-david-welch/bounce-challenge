@@ -21,8 +21,8 @@ app.use(bodyParser.json());
 
 const server = http.createServer(app);
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api', router());
+// app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get('/docs.json', (request: Request, response: Response) => {
   response.setHeader('Content-Type', 'application/json');
