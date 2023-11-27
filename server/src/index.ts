@@ -5,8 +5,12 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
+import swaggerUi from 'swagger-ui-express';
 
 import router from './router';
+
+import { swaggerSpec } from './utils/swagger';
+import { Request, Response } from 'express';
 
 const app = express();
 
@@ -17,8 +21,12 @@ app.use(bodyParser.json());
 
 const server = http.createServer(app);
 
-server.listen(8080, () => {
-  console.log('Server running on http://localhost:8080/');
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api', router());
+
+app.get('/docs.json', (request: Request, response: Response) => {
+  response.setHeader('Content-Type', 'application/json');
+  response.send(swaggerSpec);
 });
 
 mongoose.Promise = Promise;
@@ -29,4 +37,6 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
-app.use('/api', router());
+server.listen(8080, () => {
+  console.log('Server running on http://localhost:8080/');
+});
