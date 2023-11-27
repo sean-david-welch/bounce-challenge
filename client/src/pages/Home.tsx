@@ -1,3 +1,4 @@
+import Layout from '../components/Layout';
 import useFetchCountries from '../hooks/fetchCountries';
 import { Country } from '../types/country';
 
@@ -8,7 +9,7 @@ const Home = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
+    <Layout>
       <h1>Hello</h1>
 
       <ul>
@@ -16,7 +17,7 @@ const Home = () => {
           <li key={country?.cca2}>{country.name.common}</li>
         ))}
       </ul>
-    </div>
+    </Layout>
   );
 };
 
