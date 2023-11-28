@@ -75,7 +75,9 @@ const LoginForm: React.FC = () => {
           />
 
           {errorMessage && <div className={utils.errorMessage}>{errorMessage}</div>}
-          <button type="submit">Login</button>
+          <button className={utils.btn} type="submit">
+            Login
+          </button>
         </form>
       </FormDialog>
     </section>

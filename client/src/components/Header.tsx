@@ -2,6 +2,7 @@ import utils from '../styles/Utils.module.css';
 import styles from '../styles/Header.module.css';
 
 import { Link } from 'react-router-dom';
+import LoginForm from './utils/LoginForm';
 
 const Header = () => {
   return (
@@ -15,6 +16,9 @@ const Header = () => {
 
         <li className={styles.navItem}>
           <Link to="/account">Account</Link>
+        </li>
+        <li className={styles.navItem}>
+          <LoginForm />
         </li>
       </ul>
     </nav>

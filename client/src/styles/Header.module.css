@@ -1,6 +1,6 @@
 .navbar {
   @apply flex flex-row mx-auto;
-  @apply bg-emerald-600;
+  @apply bg-emerald-600 border-b-2 border-gray-200;
 }
 
 .navList {
