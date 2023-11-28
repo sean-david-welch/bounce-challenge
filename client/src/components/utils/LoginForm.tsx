@@ -51,7 +51,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <section id="form">
-      <button className={utils.btnForm} onClick={() => setShowForm(!showForm)}>
+      <button className={utils.btn} onClick={() => setShowForm(!showForm)}>
         Login
       </button>
       <FormDialog visible={showForm} onClose={() => setShowForm(false)}>

@@ -4,9 +4,19 @@
 }
 
 .navList {
-  @apply flex flex-row mx-auto my-auto;
+  @apply flex flex-row justify-evenly mx-auto my-auto w-[95%];
 }
 
 .navItem {
-  @apply my-auto;
+  @apply flex flex-row items-center;
+  @apply my-auto w-[100px] text-zinc-800;
+}
+
+.navItem a {
+  @apply flex flex-row items-center my-auto;
+  @apply my-auto w-[100px] text-zinc-800;
+}
+
+.navItem img {
+  @apply w-6 mx-2;
 }

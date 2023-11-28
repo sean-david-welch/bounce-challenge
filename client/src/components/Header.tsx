@@ -14,14 +14,20 @@ const Header = () => {
     <nav className={styles.navbar}>
       <ul className={styles.navList}>
         <li className={styles.navItem}>
-          <Link to="/">home</Link>
+          <Link to="/">
+            <img src="/icons/home.svg" alt="home-icon" />
+            Home
+          </Link>
         </li>
 
         <img src="/logo.png" alt="Logo" className={utils.logo} />
 
         {user ? (
           <li className={styles.navItem}>
-            <Link to="/account">Account</Link>
+            <Link to="/account">
+              <img src="/icons/user.svg" alt="user-icon" />
+              Account
+            </Link>
           </li>
         ) : (
           <li className={styles.navItem}>

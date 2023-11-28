@@ -4,8 +4,8 @@ import { removeUser } from '../../utils/store';
 import { useNavigate } from 'react-router-dom';
 
 const LogoutForm = () => {
-  const navigate = useNavigate(); 
-  
+  const navigate = useNavigate();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -26,7 +26,7 @@ const LogoutForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={utils.form}>
+    <form onSubmit={handleSubmit} className={utils.altForm}>
       <button className={utils.btn} type="submit">
         Logout
       </button>
