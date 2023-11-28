@@ -48,6 +48,23 @@ export const login = async (request: express.Request, response: express.Response
   }
 };
 
+export const logout = (request: express.Request, response: express.Response) => {
+  try {
+    response.clearCookie('SESSION', {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: false,
+      domain: 'localhost',
+      path: '/',
+    });
+
+    return response.status(200).send('Logged out successfully');
+  } catch (error) {
+    console.error(error);
+    return response.sendStatus(500);
+  }
+};
+
 export const register = async (request: express.Request, response: express.Response) => {
   try {
     const { email, password, username } = request.body;
