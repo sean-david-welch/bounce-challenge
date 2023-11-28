@@ -1,7 +1,17 @@
+import { Link } from 'react-router-dom';
+
 const Header = () => {
   return (
     <nav>
-      <h1>Header</h1>
+      <ul>
+        <Link to="/">
+          <li>home</li>
+        </Link>
+
+        <Link to="/account">
+          <li>Account</li>
+        </Link>
+      </ul>
     </nav>
   );
 };
