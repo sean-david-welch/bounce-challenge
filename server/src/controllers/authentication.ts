@@ -34,7 +34,14 @@ export const login = async (request: express.Request, response: express.Response
       path: '/',
     });
 
-    return response.status(200).json(user).end();
+    const clientUser = {
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      sessionToken: user.authentication.sessionToken,
+    };
+
+    return response.status(200).json(clientUser).end();
   } catch (error) {
     console.log(error);
     return response.sendStatus(400);
@@ -63,7 +70,13 @@ export const register = async (request: express.Request, response: express.Respo
       },
     });
 
-    return response.status(200).json(user).end();
+    const clientUser = {
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+    };
+
+    return response.status(200).json(clientUser).end();
   } catch (error) {
     console.log(error);
     return response.sendStatus(400);

@@ -1,5 +1,4 @@
 import Layout from '../components/Layout';
-import LoginForm from '../components/utils/LoginForm';
 import useFetchCountries from '../hooks/fetchCountries';
 import { Country } from '../types/country';
 
@@ -11,8 +10,6 @@ const Home = () => {
 
   return (
     <Layout>
-      <LoginForm />
-
       <ul>
         {countries.map((country: Country) => (
           <li key={country?.cca2}>{country.name.common}</li>

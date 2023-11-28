@@ -1,10 +1,15 @@
 import utils from '../styles/Utils.module.css';
 import styles from '../styles/Header.module.css';
 
-import { Link } from 'react-router-dom';
 import LoginForm from './utils/LoginForm';
 
+import { Link } from 'react-router-dom';
+import { $user } from '../utils/store';
+import { useStore } from '@nanostores/react';
+
 const Header = () => {
+  const user = useStore($user);
+
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navList}>
@@ -14,12 +19,15 @@ const Header = () => {
 
         <img src="/logo.png" alt="Logo" className={utils.logo} />
 
-        <li className={styles.navItem}>
-          <Link to="/account">Account</Link>
-        </li>
-        <li className={styles.navItem}>
-          <LoginForm />
-        </li>
+        {user ? (
+          <li className={styles.navItem}>
+            <Link to="/account">Account</Link>
+          </li>
+        ) : (
+          <li className={styles.navItem}>
+            <LoginForm />
+          </li>
+        )}
       </ul>
     </nav>
   );

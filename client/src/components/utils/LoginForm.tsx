@@ -3,6 +3,7 @@ import FormDialog from './FormDialog';
 import utils from '../../styles/Utils.module.css';
 
 import { useState } from 'react';
+import { addUser } from '../../utils/store';
 
 const LoginForm: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
@@ -28,9 +29,12 @@ const LoginForm: React.FC = () => {
       const result = await response.json();
       console.log(result);
 
-      if (result.ok) {
+      if (result) {
         setEmail('');
         setPassword('');
+        setShowForm(false);
+
+        addUser(result);
       }
     } catch (error: any) {
       if (error.response && error.response.status === 401) {
