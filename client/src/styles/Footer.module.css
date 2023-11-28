@@ -1,4 +1,22 @@
 .footer {
-  @apply flex flex-row mx-auto py-10;
+  @apply flex flex-col mx-auto py-10;
   @apply bg-emerald-600 border-y-2 border-gray-200;
+}
+
+.footerList {
+  @apply flex flex-row justify-evenly mx-auto my-auto w-[95%];
+}
+
+.footerItem {
+  @apply flex flex-row items-center;
+  @apply my-auto w-[200px] text-zinc-800;
+}
+
+.footerItem a {
+  @apply flex flex-row items-center my-auto;
+  @apply my-auto w-[200px] text-zinc-800;
+}
+
+.footerItem img {
+  @apply w-6 mx-2;
 }

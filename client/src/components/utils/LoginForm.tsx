@@ -51,9 +51,11 @@ const LoginForm: React.FC = () => {
 
   return (
     <section id="form">
-      <button className={utils.btn} onClick={() => setShowForm(!showForm)}>
+      <div className={utils.loginButton} role="button" onClick={() => setShowForm(!showForm)}>
+        <img src="/icons/login.svg" alt="login-icon" />
         Login
-      </button>
+      </div>
+
       <FormDialog visible={showForm} onClose={() => setShowForm(false)}>
         <form onSubmit={handleSubmit} className={utils.form}>
           <label>Email:</label>

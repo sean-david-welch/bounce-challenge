@@ -81,3 +81,12 @@
   box-shadow: 0 0 0 2px rgba(60, 147, 43, 0.5), 0 0 0 3px rgba(60, 147, 43, 0.5), 0 0 0 4px rgba(60, 147, 43, 0.5),
     0 0 0 5px rgba(60, 147, 43, 0.5);
 }
+
+.loginButton {
+  @apply flex flex-row items-center;
+  @apply my-auto w-[100px] text-zinc-800;
+}
+
+.loginButton img {
+  @apply w-6 mx-2;
+}
