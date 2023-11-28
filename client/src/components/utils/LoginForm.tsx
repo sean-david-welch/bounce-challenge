@@ -8,7 +8,7 @@ import { addUser } from '../../utils/store';
 const LoginForm: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
 
-  const [email, setEmail] = useState('');
+  const [identifer, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -19,9 +19,8 @@ const LoginForm: React.FC = () => {
       const response = await fetch('http://localhost:8080/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
-          email: email,
+          identifer: identifer,
           password: password,
         }),
       });
@@ -30,7 +29,7 @@ const LoginForm: React.FC = () => {
       console.log(result);
 
       if (result) {
-        setEmail('');
+        setIdentifier('');
         setPassword('');
         setShowForm(false);
 
@@ -58,12 +57,12 @@ const LoginForm: React.FC = () => {
 
       <FormDialog visible={showForm} onClose={() => setShowForm(false)}>
         <form onSubmit={handleSubmit} className={utils.form}>
-          <label>Email:</label>
+          <label>Email/Username:</label>
           <input
-            type="email"
-            value={email}
+            type="text"
+            value={identifer}
             onInput={e => {
-              setEmail(e.currentTarget.value);
+              setIdentifier(e.currentTarget.value);
               setErrorMessage('');
             }}
             required

@@ -1,15 +1,15 @@
 import express from 'express';
 
-import { createUser, getUserByEmail } from '../database/users';
+import { createUser, getUserByEmail, getUserByEmailOrUsername } from '../database/users';
 import { random, authentication } from '../helpers/index';
 
 export const login = async (request: express.Request, response: express.Response) => {
   try {
-    const { email, password } = request.body;
+    const { identifier, password } = request.body;
 
-    if (!email || !password) response.status(400).send('Required Field is missing');
+    if (!identifier || !password) response.status(400).send('Required Field is missing');
 
-    const user = await getUserByEmail(email).select('+authentication.salt +authentication.password');
+    const user = await getUserByEmailOrUsername(identifier).select('+authentication.salt +authentication.password');
 
     if (!user) {
       return response.status(400).send('No User found - Email or Password were incorrect');

@@ -1,0 +1,20 @@
+.countries {
+  @apply flex flex-col mx-auto my-5;
+}
+
+.country {
+  @apply flex flex-row my-10;
+  @apply bg-zinc-800 border-2 border-zinc-300 rounded-lg;
+}
+
+.country img {
+  @apply rounded-s-lg;
+}
+
+.information {
+  @apply flex flex-row;
+}
+
+.details {
+  @apply flex flex-col p-10;
+}

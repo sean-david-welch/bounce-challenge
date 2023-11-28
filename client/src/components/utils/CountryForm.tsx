@@ -25,6 +25,8 @@ const CountryForm: React.FC<CountryFormProps> = ({ onCountrySubmit }) => {
       console.log('Country Data:', data);
 
       onCountrySubmit(data);
+
+      setCountry('');
     } catch (error: any) {
       if (error.response && error.response.status === 401) {
         setErrorMessage('Incorrect email or password.');
