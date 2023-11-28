@@ -1,0 +1,4 @@
+.footer {
+  @apply flex flex-row mx-auto py-10;
+  @apply bg-emerald-600;
+}

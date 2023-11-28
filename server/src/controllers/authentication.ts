@@ -26,7 +26,13 @@ export const login = async (request: express.Request, response: express.Response
 
     await user.save();
 
-    response.cookie('SESSION', user.authentication.sessionToken, { domain: 'localhost', path: '/' });
+    response.cookie('SESSION', user.authentication.sessionToken, {
+      httpOnly: true,
+      sameSite: 'lax',
+      secure: false,
+      domain: 'localhost',
+      path: '/',
+    });
 
     return response.status(200).json(user).end();
   } catch (error) {

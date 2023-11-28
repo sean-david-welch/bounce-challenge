@@ -1,3 +1,4 @@
 .App {
+  @apply bg-gray-200;
   @apply max-w-full min-h-screen my-0 mx-auto text-center;
 }

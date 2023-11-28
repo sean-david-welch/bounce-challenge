@@ -1,5 +1,4 @@
-'use client';
-import utils from '~/styles/Utils.module.css';
+import utils from '../../styles/Utils.module.css';
 
 import { useRef, useEffect } from 'react';
 
@@ -28,7 +27,7 @@ const FormDialog = ({ children, visible, onClose }: Props) => {
 
   return (
     <dialog ref={dialogRef} className={utils.dialog}>
-      <form>{children}</form>
+      {children}
       <button className={utils.dialogBtn} formMethod="dialog" onClick={closeDialog}>
         <img src="/x.svg" alt="x-icon" />
       </button>

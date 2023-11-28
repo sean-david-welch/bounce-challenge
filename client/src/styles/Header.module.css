@@ -1,0 +1,12 @@
+.navbar {
+  @apply flex flex-row mx-auto;
+  @apply bg-emerald-600;
+}
+
+.navList {
+  @apply flex flex-row mx-auto my-auto;
+}
+
+.navItem {
+  @apply my-auto;
+}
