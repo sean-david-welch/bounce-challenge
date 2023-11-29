@@ -6,15 +6,9 @@ export interface Country {
   cca2: string;
   cca3: string;
   unMember: boolean;
-  currencies: {
-    [key: string]: string;
-  };
   capital: [string];
   altSpellings: [string];
   region: string;
-  languages: {
-    [key: string]: string;
-  };
   borders: [string];
   population: number;
   fifa: string;

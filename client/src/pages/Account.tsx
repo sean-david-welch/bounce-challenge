@@ -1,6 +1,7 @@
 import styles from '../styles/Account.module.css';
 
 import Layout from '../layouts/Layout';
+import Countries from '../components/Countries';
 
 import useUserSearches from '../hooks/useSearches';
 import LogoutForm from '../components/LogoutForm';
@@ -13,6 +14,9 @@ const Account = () => {
   const user = useStore($user);
   const { searches, isLoading, error } = useUserSearches(user?.username || '');
 
+  const countries = searches ? searches.map(search => search.country) : [];
+  console.log('countries in account', countries);
+
   return (
     <Layout>
       <LogoutForm />
@@ -22,16 +26,7 @@ const Account = () => {
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error.message}</p>}
 
-        <div className={styles.recentSearches}>
-          {searches &&
-            searches.map(search => (
-              <div>
-                <h1 key={search._id}>{search.country}</h1>
-                <img src={search.image} alt="country flag" />
-                <DeleteButton search={search} />
-              </div>
-            ))}
-        </div>
+        <div className={styles.recentSearches}>{countries && <Countries countries={countries} />}</div>
       </div>
     </Layout>
   );

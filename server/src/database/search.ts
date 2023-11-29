@@ -1,63 +1,57 @@
 import mongoose from 'mongoose';
 import { userModel } from './users';
 
-const nameSchema = new mongoose.Schema({
-  common: String,
-  official: String,
-});
-
-const currencySchema = new mongoose.Schema(
+const nameSchema = new mongoose.Schema(
   {
-    currencies: {
-      type: Map,
-      of: String,
-    },
+    common: String,
+    official: String,
   },
   { _id: false }
 );
 
-const languageSchema = new mongoose.Schema(
+const carSchema = new mongoose.Schema(
   {
-    languages: {
-      type: Map,
-      of: String,
-    },
+    signs: [String],
+    side: String,
   },
   { _id: false }
 );
 
-const carSchema = new mongoose.Schema({
-  signs: [String],
-  side: String,
-});
+const flagSchema = new mongoose.Schema(
+  {
+    png: String,
+    alt: String,
+  },
+  { _id: false }
+);
 
-const flagSchema = new mongoose.Schema({
-  png: String,
-  alt: String,
-});
+const countrySchema = new mongoose.Schema(
+  {
+    name: nameSchema,
+    cca2: String,
+    cca3: String,
+    unMember: Boolean,
+    capital: [String],
+    altSpellings: [String],
+    region: String,
+    borders: [String],
+    population: Number,
+    fifa: String,
+    car: carSchema,
+    timezones: [String],
+    continents: [String],
+    flags: flagSchema,
+    startOfWeek: String,
+  },
+  { _id: false }
+);
 
-const countrySchema = new mongoose.Schema({
-  name: nameSchema,
-  cca2: String,
-  cca3: String,
-  unMember: Boolean,
-  currencies: currencySchema,
-  capital: [String],
-  altSpellings: [String],
-  region: String,
-  languages: languageSchema,
-  borders: [String],
-  population: Number,
-  fifa: String,
-  car: carSchema,
-  timezones: [String],
-  continents: [String],
-  flags: flagSchema,
-  startOfWeek: String,
+const searchSchema = new mongoose.Schema({
+  country: countrySchema,
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
-const searchModel = mongoose.model('Search', countrySchema);
+const searchModel = mongoose.model('Search', searchSchema);
 
 export const getSearchByUser = async (username: string) => {
   try {

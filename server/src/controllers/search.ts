@@ -18,8 +18,9 @@ export const getAllSearches = async (request: express.Request, response: express
 export const addSearch = async (request: express.Request, response: express.Response) => {
   try {
     const { country, _id } = request.body;
+    console.log('country data:', country);
 
-    const search = await createSearch({ ...country, user: _id });
+    const search = await createSearch({ country: country, user: _id });
 
     return response.status(200).json(search).end();
   } catch (error) {

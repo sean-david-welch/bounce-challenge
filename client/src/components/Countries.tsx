@@ -7,6 +7,8 @@ interface CountriesProps {
 }
 
 const Countries: React.FC<CountriesProps> = ({ countries }) => {
+  console.log('countries in component', countries);
+
   return (
     <div className={styles.countries}>
       {countries.map(country => (
@@ -28,26 +30,8 @@ const Countries: React.FC<CountriesProps> = ({ countries }) => {
               <div className={styles.details}>
                 <h3>Bordering Nation:</h3>
                 <ul>
-                  {Object.values(country.borders).map((country, index) => (
-                    <li key={index}>{country}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={styles.details}>
-                <h3>Currencies:</h3>
-                <ul>
-                  {Object.entries(country.currencies).map(([code]) => (
-                    <li key={code}>{`${code}`}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={styles.details}>
-                <h3>Languages:</h3>
-                <ul className={styles.details}>
-                  {Object.values(country.languages).map((language, index) => (
-                    <li key={index}>{language}</li>
+                  {country.borders?.map((border, index) => (
+                    <li key={index}>{border}</li>
                   ))}
                 </ul>
               </div>

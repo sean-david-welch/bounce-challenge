@@ -1,6 +1,7 @@
+import { Country } from './country';
+
 export interface Search {
   _id: string;
-  country: string;
-  image: string;
+  country: Country;
   user: string;
 }
