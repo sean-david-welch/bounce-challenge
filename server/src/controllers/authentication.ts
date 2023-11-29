@@ -6,12 +6,10 @@ import { random, authentication } from '../helpers/index';
 export const login = async (request: express.Request, response: express.Response) => {
   try {
     const { identifier, password } = request.body;
-    console.log('identifier', identifier);
 
     if (!identifier || !password) response.status(400).send('Required Field is missing');
 
     const user = await getUserByEmailOrUsername(identifier).select('+authentication.salt +authentication.password');
-    console.log('user', user);
 
     if (!user) {
       return response.status(400).send('No User found - Email or Password were incorrect');
@@ -36,15 +34,12 @@ export const login = async (request: express.Request, response: express.Response
       path: '/',
     });
 
-    console.log('cookie', response.cookie);
-
     const clientUser = {
       _id: user._id,
       username: user.username,
       email: user.email,
       sessionToken: user.authentication.sessionToken,
     };
-    console.log(clientUser);
 
     return response.status(200).json(clientUser).end();
   } catch (error) {

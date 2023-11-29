@@ -30,5 +30,12 @@ export const deleteSearchById = (id: string) =>
     _id: id,
   });
 
-export const createSearch = (values: Record<string, any>) =>
-  new searchModel(values).save().then(search => search.toObject());
+export const createSearch = async (values: Record<string, any>) => {
+  try {
+    const search = await new searchModel(values).save();
+    return search.toObject();
+  } catch (error) {
+    console.error('Error creating search:', error);
+    throw error;
+  }
+};

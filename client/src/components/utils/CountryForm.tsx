@@ -2,12 +2,18 @@ import utils from '../../styles/Utils.module.css';
 
 import { useState } from 'react';
 import { Country } from '../../types/country';
+import { useStore } from '@nanostores/react';
+import { $user } from '../../utils/store';
+
+import { postSearch } from '../../utils/createSearch';
 
 interface CountryFormProps {
   onCountrySubmit: (data: Country[]) => void;
 }
 
 const CountryForm: React.FC<CountryFormProps> = ({ onCountrySubmit }) => {
+  const user = useStore($user);
+
   const [country, setCountry] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -24,9 +30,14 @@ const CountryForm: React.FC<CountryFormProps> = ({ onCountrySubmit }) => {
       const data = await response.json();
       console.log('Country Data:', data);
 
-      onCountrySubmit(data);
+      if (data) {
+        onCountrySubmit(data);
+        setCountry('');
+      }
 
-      setCountry('');
+      if (user && data) {
+        data.forEach((country: Country) => postSearch(country, user));
+      }
     } catch (error: any) {
       if (error.response && error.response.status === 401) {
         setErrorMessage('Incorrect email or password.');

@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 import Layout from '../components/Layout';
 import CountryForm from '../components/utils/CountryForm';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Country } from '../types/country';
 
 const Home = () => {
@@ -12,10 +12,6 @@ const Home = () => {
   const handleCountrySubmit = (data: Country[]) => {
     setCountries(currentCountries => [...currentCountries, ...data]);
   };
-
-  useEffect(() => {
-    console.log('Updated countries:', countries);
-  }, [countries]);
 
   return (
     <Layout>

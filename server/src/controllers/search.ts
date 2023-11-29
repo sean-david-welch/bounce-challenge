@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getSearchByUser, createSearch, deleteSearchById } from 'database/searches';
+import { getSearchByUser, createSearch, deleteSearchById } from '../database/searches';
 
 export const getAllSearches = async (request: express.Request, response: express.Response) => {
   try {
@@ -17,9 +17,9 @@ export const getAllSearches = async (request: express.Request, response: express
 
 export const addSearch = async (request: express.Request, response: express.Response) => {
   try {
-    const { country, image, user } = request.body;
+    const { common, png, _id } = request.body;
 
-    const search = await createSearch({ country, image, user });
+    const search = await createSearch({ country: common, image: png, user: _id });
 
     return response.status(200).json(search).end();
   } catch (error) {
