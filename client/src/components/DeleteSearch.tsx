@@ -10,7 +10,7 @@ const DeleteButton: React.FC<{ searchId: string }> = ({ searchId }) => {
 
   const deleteMutation = useMutation({
     mutationFn: async () => {
-      const response = await fetch(`http://localhost:8080/api/searches/${searchId}`, {
+      const response = await fetch(`https://bounce-express-server.onrender.com/api/searches/${searchId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

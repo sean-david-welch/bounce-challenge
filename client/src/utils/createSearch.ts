@@ -5,7 +5,7 @@ export const postSearch = async (country: Country, user: User) => {
   try {
     const { _id } = user;
 
-    const response = await fetch('http://localhost:8080/api/searches', {
+    const response = await fetch('https://bounce-express-server.onrender.com/api/searches', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

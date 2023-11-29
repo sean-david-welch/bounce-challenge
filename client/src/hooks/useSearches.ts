@@ -2,7 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { Search } from '../types/search';
 
 const fetchUserSearches = async (username: string): Promise<Search[]> => {
-  const response = await fetch(`http://localhost:8080/api/searches/${username}`, { credentials: 'include' });
+  const response = await fetch(`https://bounce-express-server.onrender.com/api/searches/${username}`, {
+    credentials: 'include',
+  });
   if (!response.ok) {
     throw new Error('Failed to fetch searches');
   }

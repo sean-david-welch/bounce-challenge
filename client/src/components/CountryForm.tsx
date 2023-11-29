@@ -21,7 +21,7 @@ const CountryForm: React.FC<CountryFormProps> = ({ onCountrySubmit }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/api/countries/${country}`);
+      const response = await fetch(`https://bounce-express-server.onrender.com/api/countries/${country}`);
 
       if (!response.ok) {
         throw new Error('Country fetch failed');

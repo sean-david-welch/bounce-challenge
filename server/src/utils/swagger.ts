@@ -10,7 +10,7 @@ const options: swaggerJSDoc.Options = {
     },
     servers: [
       {
-        url: 'http://localhost:8080/api',
+        url: 'https://bounce-express-server.onrender.com/api',
       },
     ],
     paths: {
