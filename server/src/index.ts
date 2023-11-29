@@ -37,6 +37,6 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
-server.listen(8080, () => {
-  console.log('Server running on http://localhost:8080/');
+server.listen(433, '0.0.0.0', () => {
+  console.log('Server running on port 433');
 });
