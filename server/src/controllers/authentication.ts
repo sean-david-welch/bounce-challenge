@@ -29,8 +29,8 @@ export const login = async (request: express.Request, response: express.Response
     response.cookie('SESSION', user.authentication.sessionToken, {
       httpOnly: true,
       sameSite: 'lax',
-      secure: false,
-      domain: 'localhost',
+      secure: true,
+      domain: 'https://bounce-frontend-vite.onrender.com/',
       path: '/',
     });
 
@@ -53,8 +53,8 @@ export const logout = (request: express.Request, response: express.Response) => 
     response.clearCookie('SESSION', {
       httpOnly: true,
       sameSite: 'lax',
-      secure: false,
-      domain: 'localhost',
+      secure: true,
+      domain: 'https://bounce-frontend-vite.onrender.com/',
       path: '/',
     });
 
