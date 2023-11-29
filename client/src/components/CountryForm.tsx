@@ -1,11 +1,11 @@
-import utils from '../../styles/Utils.module.css';
+import utils from '../styles/Utils.module.css';
 
 import { useState } from 'react';
-import { Country } from '../../types/country';
+import { Country } from '../types/country';
 import { useStore } from '@nanostores/react';
-import { $user } from '../../utils/store';
+import { $user } from '../utils/store';
 
-import { postSearch } from '../../utils/createSearch';
+import { postSearch } from '../utils/createSearch';
 
 interface CountryFormProps {
   onCountrySubmit: (data: Country[]) => void;

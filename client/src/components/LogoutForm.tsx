@@ -1,6 +1,6 @@
-import utils from '../../styles/Utils.module.css';
+import utils from '../styles/Utils.module.css';
 
-import { removeUser } from '../../utils/store';
+import { removeUser } from '../utils/store';
 import { useNavigate } from 'react-router-dom';
 
 const LogoutForm = () => {

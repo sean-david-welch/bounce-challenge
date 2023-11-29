@@ -1,7 +1,7 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-import Loading from './components/Loading';
+import Loading from './layouts/Loading';
 
 export default function AppRoutes() {
   const Home = lazy(() => import('./pages/Home'));

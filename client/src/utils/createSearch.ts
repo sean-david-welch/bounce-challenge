@@ -3,9 +3,6 @@ import { User } from '../types/user';
 
 export const postSearch = async (country: Country, user: User) => {
   try {
-    const { name, flags } = country;
-    const { common } = name;
-    const { png } = flags;
     const { _id } = user;
 
     const response = await fetch('http://localhost:8080/api/searches', {
@@ -14,7 +11,7 @@ export const postSearch = async (country: Country, user: User) => {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      body: JSON.stringify({ common, png, _id }),
+      body: JSON.stringify({ country, _id }),
     });
 
     if (!response.ok) {

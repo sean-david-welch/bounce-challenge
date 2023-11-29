@@ -1,19 +1,20 @@
+import styles from '../styles/Footer.module.css';
 import utils from '../styles/Utils.module.css';
-import styles from '../styles/Header.module.css';
 
-import LoginForm from './utils/LoginForm';
+import LoginForm from '../components/LoginForm';
+import RegisterForm from '../components/RegisterForm';
 
 import { Link } from 'react-router-dom';
 import { $user } from '../utils/store';
 import { useStore } from '@nanostores/react';
 
-const Header = () => {
+const Footer = () => {
   const user = useStore($user);
 
   return (
-    <nav className={styles.navbar}>
-      <ul className={styles.navList}>
-        <li className={styles.navItem}>
+    <footer className={styles.footer}>
+      <ul className={styles.footerList}>
+        <li className={styles.footerItem}>
           <Link to={'/'}>
             <img src="/icons/home.svg" alt="home-icon" />
             Home
@@ -25,20 +26,21 @@ const Header = () => {
         </Link>
 
         {user ? (
-          <li className={styles.navItem}>
+          <li className={styles.footerItem}>
             <Link to={'/account'}>
               <img src="/icons/user.svg" alt="user-icon" />
-              {`Account - ${user.username}`}
+              Account
             </Link>
           </li>
         ) : (
-          <li className={styles.navItem}>
+          <li className={styles.footerItem}>
             <LoginForm />
           </li>
         )}
       </ul>
-    </nav>
+      <RegisterForm />
+    </footer>
   );
 };
 
-export default Header;
+export default Footer;

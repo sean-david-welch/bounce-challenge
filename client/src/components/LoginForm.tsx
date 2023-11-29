@@ -1,9 +1,9 @@
 import FormDialog from './FormDialog';
 
-import utils from '../../styles/Utils.module.css';
+import utils from '../styles/Utils.module.css';
 
 import { useState } from 'react';
-import { addUser } from '../../utils/store';
+import { addUser } from '../utils/store';
 
 const LoginForm: React.FC = () => {
   const [showForm, setShowForm] = useState(false);

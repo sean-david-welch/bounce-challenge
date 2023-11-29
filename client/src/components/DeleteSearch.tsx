@@ -1,7 +1,7 @@
-import utils from '../../styles/Utils.module.css';
+import utils from '../styles/Utils.module.css';
 
 import { useState } from 'react';
-import { Search } from '../../types/search';
+import { Search } from '../types/search';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const DeleteButton: React.FC<{ search: Search }> = ({ search }) => {
