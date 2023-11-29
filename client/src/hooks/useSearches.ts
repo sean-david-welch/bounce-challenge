@@ -1,32 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Search } from '../types/search';
 
+const fetchUserSearches = async (username: string): Promise<Search[]> => {
+  const response = await fetch(`http://localhost:8080/api/searches/${username}`, { credentials: 'include' });
+  if (!response.ok) {
+    throw new Error('Failed to fetch searches');
+  }
+  return response.json();
+};
+
 const useUserSearches = (username: string) => {
-  const [searches, setSearches] = useState<Search[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const queryKey = ['userSearches'];
+  const queryFunction = () => fetchUserSearches(username);
 
-  useEffect(() => {
-    if (!username) return;
-
-    const fetchSearches = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(`http://localhost:8080/api/searches/${username}`, { credentials: 'include' });
-        if (!response.ok) {
-          throw new Error('Failed to fetch searches');
-        }
-        const data = await response.json();
-        setSearches(data);
-      } catch (error: any) {
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchSearches();
-  }, [username]);
+  const {
+    data: searches,
+    isLoading,
+    error,
+  } = useQuery<Search[], Error>({ queryKey: queryKey, queryFn: queryFunction });
 
   return { searches, isLoading, error };
 };

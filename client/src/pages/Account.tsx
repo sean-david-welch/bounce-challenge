@@ -2,12 +2,12 @@ import styles from '../styles/Account.module.css';
 
 import Layout from '../components/Layout';
 
+import useUserSearches from '../hooks/useSearches';
 import LogoutForm from '../components/utils/LogoutForm';
+import DeleteButton from '../components/utils/DeleteSearch';
 
 import { $user } from '../utils/store';
 import { useStore } from '@nanostores/react';
-import useUserSearches from '../hooks/useSearches';
-import DeleteButton from '../components/utils/DeleteSearch';
 
 const Account = () => {
   const user = useStore($user);
@@ -20,7 +20,7 @@ const Account = () => {
         <h1>{user?.username}</h1>
 
         {isLoading && <p>Loading...</p>}
-        {error && <p>Error: {error}</p>}
+        {error && <p>Error: {error.message}</p>}
 
         <div className={styles.recentSearches}>
           {searches &&
