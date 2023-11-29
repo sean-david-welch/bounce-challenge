@@ -4,7 +4,7 @@ import { getSearchByUser, createSearch, deleteSearchById } from '../database/sea
 
 export const getAllSearches = async (request: express.Request, response: express.Response) => {
   try {
-    const { username } = request.body;
+    const { username } = request.params;
 
     const searches = await getSearchByUser(username);
 

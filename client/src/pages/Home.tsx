@@ -19,10 +19,9 @@ const Home = () => {
       {countries && (
         <div className={styles.countries}>
           {countries.map(country => (
-            <>
+            <section key={country.cca2}>
               <h1>{`${country.name.common} - ${country.name.official}` || 'Unknown Country'}</h1>
-
-              <div key={country.cca2} className={styles.country}>
+              <div className={styles.country}>
                 <img src={country.flags.png} alt={country.flags.alt} />
 
                 <div className={styles.information}>
@@ -34,6 +33,7 @@ const Home = () => {
                     <h2>{`Fifa Acronym: ${country.fifa}`}</h2>
                     <h2>{`Continent: ${country.continents}`}</h2>
                   </div>
+
                   <div className={styles.details}>
                     <h3>Bordering Nation:</h3>
                     <ul>
@@ -42,6 +42,7 @@ const Home = () => {
                       ))}
                     </ul>
                   </div>
+
                   <div className={styles.details}>
                     <h3>Currencies:</h3>
                     <ul>
@@ -61,7 +62,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </>
+            </section>
           ))}
         </div>
       )}

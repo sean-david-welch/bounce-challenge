@@ -6,15 +6,30 @@ import LogoutForm from '../components/utils/LogoutForm';
 
 import { $user } from '../utils/store';
 import { useStore } from '@nanostores/react';
+import useUserSearches from '../hooks/useSearches';
 
 const Account = () => {
   const user = useStore($user);
+  const { searches, isLoading, error } = useUserSearches(user?.username || '');
 
   return (
     <Layout>
       <LogoutForm />
       <div className={styles.account}>
         <h1>{user?.username}</h1>
+
+        {isLoading && <p>Loading...</p>}
+        {error && <p>Error: {error}</p>}
+
+        <div className={styles.recentSearches}>
+          {searches &&
+            searches.map(search => (
+              <div>
+                <h1 key={search.user}>{search.country}</h1>
+                <img src={search.image} alt="country flag" />
+              </div>
+            ))}
+        </div>
       </div>
     </Layout>
   );
