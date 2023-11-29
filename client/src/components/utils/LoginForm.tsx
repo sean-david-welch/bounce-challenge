@@ -8,7 +8,7 @@ import { addUser } from '../../utils/store';
 const LoginForm: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
 
-  const [identifer, setIdentifier] = useState('');
+  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -19,14 +19,16 @@ const LoginForm: React.FC = () => {
       const response = await fetch('http://localhost:8080/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({
-          identifer: identifer,
+          identifier: identifier,
           password: password,
         }),
       });
+      console.log('response', response);
 
       const result = await response.json();
-      console.log(result);
+      console.log('result', result);
 
       if (result) {
         setIdentifier('');
@@ -60,7 +62,7 @@ const LoginForm: React.FC = () => {
           <label>Email/Username:</label>
           <input
             type="text"
-            value={identifer}
+            value={identifier}
             onInput={e => {
               setIdentifier(e.currentTarget.value);
               setErrorMessage('');

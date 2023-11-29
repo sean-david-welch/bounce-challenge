@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { delteUserById, getUserById, getUsers } from '../database/users';
+import { deleteUserById, getUserById, getUsers } from '../database/users';
 
 export const getAllUsers = async (request: express.Request, response: express.Response) => {
   try {
@@ -19,7 +19,7 @@ export const deleteUser = async (request: express.Request, response: express.Res
 
     if (!id) return response.status(400).send('No Id present in request');
 
-    const deletedUser = await delteUserById(id);
+    const deletedUser = await deleteUserById(id);
 
     return response.status(200).json(deletedUser);
   } catch (error) {
