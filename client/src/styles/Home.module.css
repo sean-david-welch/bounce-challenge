@@ -2,6 +2,10 @@
   @apply flex flex-col mx-auto my-5;
 }
 
+.countries h1 {
+  @apply text-2xl my-5;
+}
+
 .country {
   @apply flex flex-row my-10;
   @apply bg-zinc-800 border-2 border-zinc-300 rounded-lg;

@@ -90,3 +90,7 @@
 .loginButton img {
   @apply w-6 mx-2;
 }
+
+.altForm {
+  @apply my-5;
+}

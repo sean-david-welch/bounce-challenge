@@ -1,0 +1,8 @@
+.account {
+  @apply bg-zinc-800 w-[725px] p-5 my-10;
+  @apply mx-auto rounded-lg border-2 border-zinc-200;
+}
+
+.account h1 {
+  @apply text-2xl;
+}

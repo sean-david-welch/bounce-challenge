@@ -1,17 +1,17 @@
 import styles from '../styles/Home.module.css';
+import DeleteButton from './DeleteSearch';
 
 import { Country } from '../types/country';
 
 interface CountriesProps {
   countries: Country[];
+  searchId?: string[];
 }
 
-const Countries: React.FC<CountriesProps> = ({ countries }) => {
-  console.log('countries in component', countries);
-
+const Countries: React.FC<CountriesProps> = ({ countries, searchId }) => {
   return (
     <div className={styles.countries}>
-      {countries.map(country => (
+      {countries.map((country, index) => (
         <section key={country.cca2}>
           <h1>{`${country.name.common} - ${country.name.official}` || 'Unknown Country'}</h1>
           <div className={styles.country}>
@@ -37,6 +37,9 @@ const Countries: React.FC<CountriesProps> = ({ countries }) => {
               </div>
             </div>
           </div>
+          {searchId && searchId[index] && (
+            <DeleteButton searchId={searchId[index]} /> // Use searchId[index] for each country
+          )}
         </section>
       ))}
     </div>

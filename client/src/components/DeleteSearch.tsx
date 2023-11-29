@@ -1,11 +1,9 @@
 import utils from '../styles/Utils.module.css';
 
 import { useState } from 'react';
-import { Search } from '../types/search';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const DeleteButton: React.FC<{ search: Search }> = ({ search }) => {
-  const searchId = search._id;
+const DeleteButton: React.FC<{ searchId: string }> = ({ searchId }) => {
   const queryClient = useQueryClient();
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -43,10 +41,8 @@ const DeleteButton: React.FC<{ search: Search }> = ({ search }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <button type="submit">
-        <div className={utils.loginButton} role="button">
-          <img src="/icons/trash.svg" alt="login-icon" />
-        </div>
+      <button type="submit" className={utils.btn}>
+        Delete Model
       </button>
       {errorMessage && <div className={utils.errorMessage}>{errorMessage}</div>}
     </form>
