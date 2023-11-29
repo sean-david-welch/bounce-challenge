@@ -34,9 +34,9 @@ export const deleteSearch = async (request: express.Request, response: express.R
 
     if (!id) return response.status(400).send('No Id present in request');
 
-    const deletedUser = await deleteSearchById(id);
+    const deletedSearch = await deleteSearchById(id);
 
-    return response.status(200).json(deletedUser);
+    return response.status(200).json(deletedSearch);
   } catch (error) {
     console.log(error);
     return response.sendStatus(400);

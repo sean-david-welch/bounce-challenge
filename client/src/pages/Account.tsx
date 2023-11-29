@@ -7,6 +7,7 @@ import LogoutForm from '../components/utils/LogoutForm';
 import { $user } from '../utils/store';
 import { useStore } from '@nanostores/react';
 import useUserSearches from '../hooks/useSearches';
+import DeleteButton from '../components/utils/DeleteSearch';
 
 const Account = () => {
   const user = useStore($user);
@@ -25,8 +26,9 @@ const Account = () => {
           {searches &&
             searches.map(search => (
               <div>
-                <h1 key={search.user}>{search.country}</h1>
+                <h1 key={search._id}>{search.country}</h1>
                 <img src={search.image} alt="country flag" />
+                <DeleteButton search={search} />
               </div>
             ))}
         </div>
