@@ -14,7 +14,7 @@ import { Request, Response } from 'express';
 
 export const app = express();
 
-app.use(cors({ origin: 'https://bounce-frontend-vite.onrender.com/', credentials: true }));
+app.use(cors({ origin: 'https://bounce-frontend-vite.onrender.com', credentials: true }));
 app.use(compression());
 app.use(cookieParser());
 app.use(bodyParser.json());
