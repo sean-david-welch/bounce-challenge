@@ -26,11 +26,13 @@ const Account = () => {
             <h1>Account Details:</h1>
             <h1>Username: {user?.username}</h1>
             <h1>Email: {user?.email}</h1>
-            <LogoutForm />
 
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
           </div>
+
+          <LogoutForm />
+
           {countries && <Countries countries={countries} searchId={searchId} />}
         </>
       ) : (

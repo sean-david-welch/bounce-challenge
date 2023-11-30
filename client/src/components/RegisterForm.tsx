@@ -28,7 +28,7 @@ const RegisterForm: React.FC = () => {
 
       if (result) {
         setEmail('');
-        setPassword('');
+        setUsername('');
         setPassword('');
       }
     } catch (error: any) {

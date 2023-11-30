@@ -2,7 +2,6 @@ import styles from '../styles/Footer.module.css';
 import utils from '../styles/Utils.module.css';
 
 import LoginForm from '../components/LoginForm';
-import RegisterForm from '../components/RegisterForm';
 
 import { Link } from 'react-router-dom';
 import { $user } from '../utils/store';
@@ -38,7 +37,6 @@ const Footer = () => {
           </li>
         )}
       </ul>
-      <RegisterForm />
     </footer>
   );
 };
