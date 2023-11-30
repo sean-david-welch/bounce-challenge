@@ -32,6 +32,7 @@ export const login = async (request: express.Request, response: express.Response
       secure: true,
       domain: 'bounce-frontend-vite.onrender.com',
       path: '/',
+      maxAge: 3600000,
     });
 
     const clientUser = {

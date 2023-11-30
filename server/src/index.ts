@@ -12,7 +12,7 @@ import router from './router';
 import { swaggerSpec } from './utils/swagger';
 import { Request, Response } from 'express';
 
-const app = express();
+export const app = express();
 
 app.use(cors({ origin: ['http://localhost:3000', 'https://bounce-frontend-vite.onrender.com'], credentials: true }));
 app.use(compression());
