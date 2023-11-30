@@ -30,7 +30,7 @@ export const login = async (request: express.Request, response: express.Response
       httpOnly: true,
       sameSite: 'none',
       secure: true,
-      domain: 'https://bounce-express-server.onrender.com/',
+      domain: 'bounce-express-server.onrender.com',
       path: '/',
       maxAge: 3600000,
     });
@@ -55,7 +55,7 @@ export const logout = (request: express.Request, response: express.Response) => 
       httpOnly: true,
       sameSite: 'none',
       secure: true,
-      domain: 'https://bounce-express-server.onrender.com/',
+      domain: 'bounce-express-server.onrender.com',
       path: '/',
     });
 
