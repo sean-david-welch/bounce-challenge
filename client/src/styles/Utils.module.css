@@ -41,13 +41,23 @@
   @apply flex flex-col bg-zinc-800 border-emerald-600 text-center p-10;
 }
 
+.regForm {
+  @apply flex flex-col bg-zinc-800 mx-auto w-2/3 border-2 border-gray-200 rounded-lg p-10 text-center;
+}
+
+.regForm h1 {
+  @apply text-2xl;
+}
+
 .form > *,
-.altForm > * {
+.altForm > *,
+.regForm > * {
   @apply my-4;
 }
 
 .form label,
-.altForm label {
+.altForm label,
+.regForm label {
   @apply my-2 block text-lg font-medium text-gray-200;
 }
 
@@ -56,7 +66,10 @@
 .form select,
 .altForm textarea,
 .altForm input,
-.altForm select {
+.altForm select,
+.regForm textarea,
+.regForm input,
+.regForm select {
   @apply block w-2/3 rounded-lg border p-2.5 text-sm mx-auto;
   @apply border-zinc-600 bg-zinc-800 text-gray-200 placeholder-gray-400 focus:border-red-700 focus:ring-red-700;
 }

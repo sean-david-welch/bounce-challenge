@@ -46,7 +46,9 @@ const RegisterForm: React.FC = () => {
 
   return (
     <section id="form">
-      <form onSubmit={handleSubmit} className={utils.altForm}>
+      <form onSubmit={handleSubmit} className={utils.regForm}>
+        <h1>User Registration Form:</h1>
+
         <label>Username:</label>
         <input
           type="text"
@@ -57,7 +59,6 @@ const RegisterForm: React.FC = () => {
           }}
           required
         />
-
         <label>Email:</label>
         <input
           type="email"
@@ -68,7 +69,6 @@ const RegisterForm: React.FC = () => {
           }}
           required
         />
-
         <label>Password:</label>
         <input
           type="password"
@@ -79,10 +79,9 @@ const RegisterForm: React.FC = () => {
           }}
           required
         />
-
         {errorMessage && <div className={utils.errorMessage}>{errorMessage}</div>}
         <button className={utils.btn} type="submit">
-          Register User
+          Submit
         </button>
       </form>
     </section>
