@@ -25,3 +25,7 @@
 - Client application is hosted at: https://bounce-frontend-vite.onrender.com
 
 - Server API is hosted at: https://bounce-express-server.onrender.com
+
+- Notes:
+- As server is hosted on free tier, please allow time for cold starts when first registering or logging in
+- I believe this application demonstrates my ability to communicate with external APIs, transform data to the applications needs, work will NOSQL databases in CRUD operations, and my knowledge of the importance of authentication, and how to handle client side context storage
