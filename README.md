@@ -18,7 +18,7 @@
 
 - When authenticated any searches are saved in a similar document model in the DB and contain reference to that user; such searches will be dislayed on the account page and can be deleted by the user
 
-- Jest and Cypress are configured for server and client testing respectively; though admittedly, this is something I must study further and improve upon
+- Jest and Cypress are configured for server and client testing respectively; though admittedly, this is something I must study further and improve upon. However, Cyrpess would not work for my frontend, due to the use of vite v5
 
 - Moreover, I tried to implement swagger docs for the api home page. However, I was unable to configure it correctly in time having previously done so for a python and Java REST API
 
